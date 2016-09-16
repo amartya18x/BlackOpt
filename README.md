@@ -24,9 +24,9 @@ This is the most basic gradient descent code you will have ever seen. The reason
 
 The two functions I have in my test script are 
 
-+ $$f(x) = x^2$$
++ f(x) = x^2
 
-+ $$f(x, y) = x^2 + 2(y-1)^2*$$
++ f(x, y) = x^2 + 2(y-1)^2
 
 The error curves vs iterations are given below :
 
