@@ -7,7 +7,7 @@ class optim(object):
     def __init__(self, func, eps, num_v):
         self.func = func
         self.eps = eps
-        self.lr = 10e-4
+        self.lr = 10e-5
         self.num_var = num_v
         self.gc = grad_calculator(self.func,num_v )
 
@@ -22,7 +22,7 @@ class optim(object):
         grad_x = self.grad_desc(x)
         cost = [self.func(x)]
         t = 0
-        while(np.sum(grad_x)**2 > self.eps ):
+        while(np.sum(grad_x)**2 > self.eps and t < 100000):
             x_new = x - self.lr * grad_x
             cost.append(self.func(x_new))
             grad_x = self.grad_desc(x_new)

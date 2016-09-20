@@ -17,7 +17,13 @@ tup_x_sq = (x_sq, x_sq_grad)
 
 
 def x_sq_y(var):
-    return var[0] ** 2 + 2 * (var[1] - 1)**2
+    return var[0] ** 2 + 2 * (var[1] - 1)**2 + 1
+
+
+def comp_func(var):
+    y = var[1]
+    x = var[0]
+    return (x - y)**2 - np.log((x + y)**2)
 
 
 def x_sq_y_grad(var):
@@ -49,7 +55,7 @@ for i in range(0, test_var):
 
 print(error / test_var)
 
-optim = optim(tup_x_sq_y[0], 0.00001, 2)
+optim = optim(tup_x_sq_y[0], 10e-10, 2)
 cost = optim.optimize()
 plt.plot(cost)
 plt.show()
